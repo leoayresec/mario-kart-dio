@@ -6,9 +6,6 @@ Este projeto foi inspirado no desafio da DIO, mas desenvolvido do zero com base 
 Este projeto é uma simulação simples de corrida inspirada no universo Mario Kart, feita inteiramente para rodar no console utilizando Node.js. A ideia principal é permitir que dois jogadores sejam selecionados e compitam em uma série de rodadas, com base em atributos e sorte (rolagem de dados).
 
 📁 Estrutura do Projeto
-bash
-Copiar
-Editar
 src/
 ├── index.js            # Arquivo principal: inicia o jogo
 ├── players/
@@ -18,10 +15,7 @@ src/
 🚀 Como executar
 Clone o repositório:
 
-bash
-Copiar
-Editar
-git clone https://github.com/seu-usuario/mario-kart-console.git
+git clone https://github.com/leoayresec/mario-kart-dio.git
 cd mario-kart-console
 Instale o Node.js (se ainda não tiver):
 
@@ -29,9 +23,6 @@ https://nodejs.org/
 
 Rode o jogo:
 
-bash
-Copiar
-Editar
 node src/index.js
 🎮 Regras do Jogo
 Você escolhe dois personagens disponíveis pelo nome.
@@ -63,9 +54,6 @@ pontuação (iniciada em 0)
 
 Exemplo:
 
-js
-Copiar
-Editar
 {
   nome: "Mario",
   velocidade: 4,

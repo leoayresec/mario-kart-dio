@@ -69,15 +69,45 @@ function getRandomBlock() {
 }
 
 async function playRaceEngine(players) {
+    
     for (let round = 1; round <= 5; round++) {
         console.log(`🏁 Rodada ${round}`);
         const block = getRandomBlock();
-        console.log(`Bloco sorteado: ${block.type} (atributo: ${block.attribute})`);
-        // Lógica da rodada pode ser implementada aqui futuramente
+        console.log(`Bloco sorteado: ${block.type}`);
+        let diceResult1 = await rollDice();
+        let diceResult2 = await rollDice();
+        let totalSkill1 = 0;
+        let totalSkill2 = 0;
+        totalSkill1 = diceResult1 + players.first[block.attribute]
+        totalSkill2 = diceResult2 + players.second[block.attribute]
+        console.log(`Resultado do Dado1:(${diceResult1}) atributo ${block.attribute} :(${players.first[block.attribute]}) Total: ${totalSkill1}`);
+        console.log(`Resultado do Dado2:(${diceResult2}) atributo ${block.attribute} :(${players.second[block.attribute]}) Total: ${totalSkill2}`);
+        if (block.type === 'CONFRONTO' && totalSkill1 > totalSkill2 && players.second.pontuacao > 0) {
+            players.second.pontuacao --;
+        }
+        else if (block.type === 'CONFRONTO' && totalSkill2 > totalSkill1 && players.first.pontuacao > 0) {
+            players.first.pontuacao --;
+        }
+        if (block.type === 'RETA' || block.type === 'CURVA'){
+            if (totalSkill1 > totalSkill2){
+                players.first.pontuacao ++;
+            }else if(totalSkill2 > totalSkill1){
+                players.second.pontuacao ++;
+            }
+        }
+        console.log(`Pontuação atual ${players.first.nome}: ${players.first.pontuacao}`);
+        console.log(`Pontuação atual ${players.second.nome}: ${players.second.pontuacao}`);
+        console.log(`--------------------------------------------------------------------------`);
+        if (players.first.pontuacao > players.second.pontuacao){
+          console.log(`Vencedor: ${players.first.nome}`)  
+        }
+        else if (players.second.pontuacao > players.first.pontuacao){
+          console.log(`Vencedor: ${players.second.nome}`)  
+        }else{
+          console.log(`Empate`)   
+        }
     }
-
-    console.log(`\nPlayer 1: ${players.first.nome}`);
-    console.log(`Player 2: ${players.second.nome}`);
+    
 }
 
 (async function main() {

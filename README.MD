@@ -2,7 +2,6 @@
 Este projeto foi inspirado no desafio da DIO, mas desenvolvido do zero com base na descrição original:
 👉 https://github.com/digitalinnovationone/formacao-nodejs/tree/main/03-projeto-mario-kart
 
-
 🏎️ Mario Kart Console Game (Node.js)
 Este projeto é uma simulação simples de corrida inspirada no universo Mario Kart, feita inteiramente para rodar no console utilizando Node.js. A ideia principal é permitir que dois jogadores sejam selecionados e compitam em uma série de rodadas, com base em atributos e sorte (rolagem de dados).
 
